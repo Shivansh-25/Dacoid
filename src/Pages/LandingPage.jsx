@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function LandingPage() {
   const [content, setContent] = useState({
@@ -28,6 +28,19 @@ export default function LandingPage() {
       setIsButtonClicked(true);
     }
   };
+
+  const isLaptop = () => {
+    return window.innerWidth > 1024;
+  };
+
+  useEffect(() => {
+    if (isLaptop()) {
+      // Optionally, redirect to a mobile version or show a message
+      alert("This app is created for mobile. Please switch to mobile view.");
+      // Uncomment the line below to redirect to a mobile version if you have one
+      // navigate("/mobile-version");
+    }
+  }, []);
 
   return (
     <div className="flex flex-col h-[90vh] justify-between bg-white p-5">

@@ -5,8 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import LoginButton from "../Components/LoginButton";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useFormik } from "formik";
 
-export default function SignInPage() {
+export default function SignUpPage() {
   const [passwordShown, setPasswordShown] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -14,6 +15,14 @@ export default function SignInPage() {
   };
   const { user, loginWithRedirect } = useAuth0();
   console.log(user);
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+    },
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
   return (
     <>
       <div className="flex flex-col justify-between h-[90vh] ">
@@ -83,7 +92,7 @@ export default function SignInPage() {
         <div className="mb-8">
           <div className="flex justify-center items-center">
             <Link to="/goals">
-              <button className="bg-gradient-to-r from-blue-300 to-blue-500 rounded-md mt-4 p-2 min-w-[90vw]">
+              <button type='submit' className="bg-gradient-to-r from-blue-300 to-blue-500 rounded-md mt-4 p-2 min-w-[90vw]">
                 Create an account
               </button>
             </Link>
