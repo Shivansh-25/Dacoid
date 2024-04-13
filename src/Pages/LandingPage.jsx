@@ -30,7 +30,7 @@ export default function LandingPage() {
   };
 
   const isLaptop = () => {
-    return window.innerWidth > 1024;
+    return window.innerWidth > 800;
   };
 
   useEffect(() => {
