@@ -30,12 +30,12 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="flex flex-col h-screen justify-between bg-white p-5">
+    <div className="flex flex-col h-[90vh] justify-between bg-white p-5">
       <div>
         <div className="flex justify-end text-[#9FB2FF] underline">
           <Link to="/signin">Skip</Link>
         </div>
-        <div className="flex justify-center mt-[12vh] ">
+        <div className="flex justify-center mt-[3vh]">
           <img
             src={content.imageSrc}
             alt="Descriptive text"

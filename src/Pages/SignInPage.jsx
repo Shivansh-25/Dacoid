@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle, faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 export default function SignInPage() {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -11,7 +13,7 @@ export default function SignInPage() {
 
   return (
     <>
-      <div className="flex flex-col justify-between h-screen ">
+      <div className="flex flex-col justify-between h-[90vh] ">
         <div className="">
           {/* Heading */}
           <div className="text-xl font-semibold m-3 mt-8 mb-4">
@@ -60,6 +62,18 @@ export default function SignInPage() {
             <div className="border-[#cecdcd] border-t-2 mr-2 w-[40vw]" />
             <p className="text-xs">Or</p>
             <div className="border-[#cecdcd] border-t-2 ml-2 w-[40vw]" />
+          </div>
+          <div className="flex justify-center items-center w-screen">
+            <div>
+              <FontAwesomeIcon
+                icon={faGoogle}
+                className="text-[#EA4335] w-7 h-7 border p-2 mr-3 mt-3"
+              />
+              <FontAwesomeIcon
+                icon={faFacebook}
+                className="text-[#316FF6] w-7 h-7 border p-2 "
+              />
+            </div>
           </div>
           <div className="text-sm flex justify-center mt-1">
             <span className="mr-2">Don't have an account yet?</span> {"   "}

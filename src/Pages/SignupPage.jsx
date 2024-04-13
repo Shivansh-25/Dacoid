@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle, faFacebook } from "@fortawesome/free-brands-svg-icons";
+import LoginButton from "../Components/LoginButton";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function SignInPage() {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -8,10 +12,11 @@ export default function SignInPage() {
   const togglePasswordVisibility = () => {
     setPasswordShown(!passwordShown);
   };
-
+  const { user, loginWithRedirect } = useAuth0();
+  console.log(user);
   return (
     <>
-      <div className="flex flex-col justify-between h-screen ">
+      <div className="flex flex-col justify-between h-[90vh] ">
         <div className="">
           {/* Heading */}
           <div className="text-xl font-semibold m-3 mt-8 mb-4">
@@ -56,9 +61,9 @@ export default function SignInPage() {
                 className="ml-4"
               >
                 {passwordShown ? (
-                  <EyeSlashIcon className="h-5 w-5" />
+                  <EyeSlashIcon className="h-6 w-6" />
                 ) : (
-                  <EyeIcon className="h-5 w-5" />
+                  <EyeIcon className="h-6 w-6" />
                 )}
               </button>
             </div>
@@ -83,10 +88,27 @@ export default function SignInPage() {
               </button>
             </Link>
           </div>
+
           <div className="flex justify-center items-center mt-2">
             <div className="border-[#cecdcd] border-t-2 mr-2 w-[40vw]" />
             <p className="text-xs">Or</p>
+
             <div className="border-[#cecdcd] border-t-2 ml-2 w-[40vw]" />
+          </div>
+          <div className="flex justify-center items-center w-screen">
+            <div>
+              <FontAwesomeIcon
+                icon={faGoogle}
+                className="text-[#EA4335] w-7 h-7 border p-2 mr-3 mt-3"
+                // onClick={() => loginWithRedirect()}
+              />
+              <FontAwesomeIcon
+                icon={faFacebook}
+                className="text-[#316FF6] w-7 h-7 border p-2 "
+                // onClick={() => loginWithRedirect()}
+              />
+              <LoginButton />
+            </div>
           </div>
           <div className="text-sm flex justify-center mt-1">
             <span className="mr-2">Already have an account!</span> {"   "}
