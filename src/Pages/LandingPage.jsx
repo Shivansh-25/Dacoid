@@ -43,37 +43,37 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <div className="flex flex-col h-[90vh] justify-between bg-white p-5">
-      <div>
-        <div className="flex justify-end text-[#9FB2FF] underline">
-          <Link to="/signin">Skip</Link>
+    <>
+      <div className="flex flex-col h-[90vh] justify-between bg-white p-5">
+        <div>
+          <div className="flex justify-end text-[#9FB2FF] underline">
+            <Link to="/signin">Skip</Link>
+          </div>
+          <div className="flex justify-center mt-[3vh]">
+            <img
+              src={content.imageSrc}
+              alt="Descriptive text"
+              className="w-[70vw] h-[30vh] transition ease-in-out duration-500"
+            />
+          </div>
+          <div className="mt-[10vh]">
+            <h2 className="font-sans mb-3 text-xl font-semibold ">
+              {content.title}
+            </h2>
+            <p className="font-sans text-gray transition-opacity duration-1000 ease-in-out">
+              {content.description}
+            </p>
+          </div>
         </div>
-        <div className="flex justify-center mt-[3vh]">
-          <img
-            src={content.imageSrc}
-            alt="Descriptive text"
-            className="w-[70vw] h-[30vh] transition ease-in-out duration-500"
-          />
-        </div>
-        <div className="mt-[10vh]">
-          <h2 className="font-sans mb-3 text-xl font-semibold ">
-            {content.title}
-          </h2>
-          <p className="font-sans text-gray transition-opacity duration-1000 ease-in-out">
-            {content.description}
-          </p>
+        <div className="flex justify-end mb-8">
+          <button
+            onClick={handleNextPage}
+            className={`${isButtonClicked ? "complete-border" : "partial-border"} relative bg-gradient-to-r from-white to-custom-blue text-white font-semibold rounded-full flex items-center justify-center h-14 w-14`}
+          >
+            <ChevronRightIcon className="h-5 w-5" />
+          </button>
         </div>
       </div>
-      <div className="flex justify-end mb-8">
-        <button
-          onClick={handleNextPage}
-          className={`${
-            isButtonClicked ? "complete-border" : "partial-border"
-          } relative bg-gradient-to-r from-white to-custom-blue text-white font-semibold rounded-full flex items-center justify-center h-14 w-14`}
-        >
-          <ChevronRightIcon className="h-5 w-5" />
-        </button>
-      </div>
-    </div>
+    </>
   );
 }
